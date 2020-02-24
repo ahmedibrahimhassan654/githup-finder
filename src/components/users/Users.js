@@ -44,6 +44,7 @@ import UserItems from './UserItems'
 const userStyle={
     display: 'grid',
     gridTemplateColumns: 'repeat(3,1fr)',
-    gridGap:'1rem'
+    gridGap:'1rem',
+   
 }
 export default Users
