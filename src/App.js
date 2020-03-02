@@ -28,23 +28,26 @@ class App extends Component {
   searchUser=async search=>{
  
    const res= await Axios.get(
-    `https://api.github.com/search/users?q=${search}&client_id=${process.env.REACT_APP_HITHUB_CLIENT_ID}&client_Secret=${process.env.REACT_APP_HITHUB_CLIENT_SECRET}`)
-  this.setState({users:res.data.items,loading:false})
+     `https://api.github.com/search/users?q=${ search }&
+    client_id=${process.env.REACT_APP_HITHUB_CLIENT_ID }&
+    client_Secret=${ process.env.REACT_APP_HITHUB_CLIENT_SECRET }` )
+    this.setState({users:res.data.items,loading:false})
  
-  console.log(search);
-  
-
 }
+//clear users from state
+    clearUser= ()=>{
+    this.setState({users:[],loading:false})
+    }
   render(){
-   
+   const{loading,users}=this.state
     
     return (
    <div className='App'>
     <Navbar />
     
     <div className='container'>
-     <Search searchUser={this.searchUser}/>
-      <Users loading={this.state.loading} users={this.state.users} />
+          <Search searchUser={this.searchUser} clearUser={this.clearUser} showClear={users.length>0 ? true:false}/>
+      <Users loading={loading} users={users} />
       </div>
     
    </div>
