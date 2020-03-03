@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
    
         return (
             <div className='card text-center' >
-                <img src={avatar_url} alt='' className='round-img' style={{width:'100px'}}></img>
+                <img src={avatar_url} alt='' className='round-img' style={{width:100}}></img>
                 <h3>{login}</h3> 
                 <div>
                 
